@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h1 class="card-title">Dashboard</h1>
+        <p class="card-text">Welcome to the Employee Portal dashboard.</p>
+        <button id="btn" class="btn btn-primary">View</button>
+    </div>
+</div>
+<script>
+ let btn = document.getElementById('btn')
+ btn.addEventListener('click', () => {
+   let userInput = prompt("Enter your name")
+ })
+</script>
+{% endblock %}
