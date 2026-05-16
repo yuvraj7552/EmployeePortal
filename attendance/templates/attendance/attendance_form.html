@@ -1,0 +1,16 @@
+{% extends 'employee/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row justify-content-center my-5 py-5">
+    <div class="col-md-6">
+        <h3 class="fw-normal my-3">Attendance</h3>
+        {% crispy form %}
+    </div>
+</div>
+{% if form.errors %}
+<div class="alert alert-danger">
+    {{ form.errors }}
+</div>
+{% endif %}
+{% endblock %}

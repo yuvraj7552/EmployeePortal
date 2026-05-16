@@ -1,10 +1,11 @@
+from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic import CreateView
-from .forms import UserCreationForm, LoginForm
+from .forms import UserCreationForm, AuthenticationForm
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, PasswordResetView
 
-#Create your views here.
+# Create your views here.
 class Register(SuccessMessageMixin, CreateView):
     form_class = UserCreationForm
     template_name = 'auth/register.html'
@@ -12,7 +13,7 @@ class Register(SuccessMessageMixin, CreateView):
     success_message = "Account created successfully."
 
 class Login(SuccessMessageMixin, LoginView):
-    form_class = LoginForm
+    form_class = AuthenticationForm
     template_name = 'auth/login.html'
+    success_url = reverse_lazy('dashboard')
     success_message = 'You are now logged in.'
-    success_url = reverse_lazy('login')

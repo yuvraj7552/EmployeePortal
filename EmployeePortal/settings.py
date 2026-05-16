@@ -37,9 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "crispy_forms",
-    "crispy_bootstrap5",
     'employee',
+    'attendance',
 ]
 
 MIDDLEWARE = [
@@ -119,7 +118,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-AUTH_USER_MODEL = "employee.CustomUser"
+AUTH_USER_MODEL = "employee.User"
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
+LOGIN_REDIRECT_URL = 'attendance/create/'
+LOGOUT_REDIRECT_URL = '/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'

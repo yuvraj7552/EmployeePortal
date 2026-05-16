@@ -1,12 +1,14 @@
-{% extends "employees/base.html" %}
-{% load crispy_forms_tags %}
+{% extends "employee/base.html" %}
 
 {% block content %}
 <div class="row justify-content-center my-5 py-5">
   <div class="col-md-4">
     <h3 class="fw-normal my-3">Log In</h3>
-      {% crispy form %}
-      <a href="{% url 'password_reset' %}" class='btn btn-outline-secondary btn-sm my-1'>Forgot Password?</a>
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+      {% comment %} <a href="{% url 'password_reset' %}" class='btn btn-outline-secondary btn-sm my-2'>Forgot Password?</a> {% endcomment %}
   </div>
 </div>
 {% endblock content %}
